@@ -62,35 +62,38 @@ def main():
 
 def dumpMcpatOut(outFile):
     rootElem = templateMcpat.getroot()
-    configMatch = re.compile(r'config\.([a-zA-Z0-9_:\.]+)')
+    #configMatch = re.compile(r'config\.([a-zA-Z0-9_:\.]+)')
+    configMatch = re.compile(r'config\.([a-zA-Z0-9_:\.\[\]]+)')
     #replace params with values from the GEM5 config file 
     #print "Replace from Config File"
     for param in rootElem.iter('param'):
         
         name = param.attrib['name']
         value = param.attrib['value']
-        print "Param = %s" % name
-        print "value = %s" % value
+        #print "Param = %s" % name
+        #print "value = %s" % value
 
         if 'config' in value:
             
 
             allConfs = configMatch.findall(value)
+            #print "allconfs: ", allConfs
+
             for conf in allConfs:
                 confValue = getConfValue(conf)
-                print "confValue: ",confValue
+                #print "confValue: ",confValue
                 value = re.sub("config."+ conf, str(confValue), value)
-            print "new value: ", value 
+            #print "new value: ", value 
             if "," in value:
                 exprs = re.split(',', value)
-                print "tenho virgula"
+                #print "tenho virgula"
                 for i in range(len(exprs)):
-                    print "exprs[", i, "]: ",  exprs[i], "\n"
+                    #print "exprs[", i, "]: ",  exprs[i], "\n"
                     exprs[i] = str(eval(exprs[i]))
                 param.attrib['value'] = ','.join(exprs)
             else:
-                print "n tenho virgula"  
-                print "avaluo: ",value              
+                #print "n tenho virgula"  
+                #print "avaluo: ",value , "(",str(eval(str(value))),")"             
                 param.attrib['value'] = str(eval(str(value)))
 
     #print "Replace from stats file\n"
