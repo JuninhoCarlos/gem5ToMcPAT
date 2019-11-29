@@ -1,0 +1,46 @@
+gem5 Simulator System.  http://gem5.org
+gem5 is copyrighted software; use the --copyright option for details.
+
+gem5 compiled Nov 25 2019 17:42:24
+gem5 started Nov 26 2019 19:12:30
+gem5 executing on junin-X150-PLUS-WS, pid 21496
+command line: /home/junin/git/DREAMS_gem5/build/RISCV/gem5.opt --redirect-stdout --stdout-file=screen_log.txt --outdir=/home/junin/git/DREAMS_gem5/m5out/IEEE_LA/multicore/4Issue/5dedicado/bitcount /home/junin/git/DREAMS_gem5/configs/my/multicoreSimulation.py -c /home/junin/git/parmibench-riscv/myBitcount/bitcount_riscv -o '' --alu-per-col=5 --pe-per-core=5 --branch-per-config=5 --issue-size=4
+
+Program  ['/home/junin/git/parmibench-riscv/myBitcount/bitcount_riscv']
+Global frequency set at 1000000000000 ticks per second
+warn: DRAM device capacity (8192 Mbytes) does not match the address range assigned (512 Mbytes)
+NOT NULL POINT In system.cpu0
+NOT NULL POINT In system.cpu1
+NOT NULL POINT In system.cpu2
+NOT NULL POINT In system.cpu3
+0: system.remote_gdb: listening for remote gdb on port 7008
+0: system.remote_gdb: listening for remote gdb on port 7009
+0: system.remote_gdb: listening for remote gdb on port 7010
+0: system.remote_gdb: listening for remote gdb on port 7011
+Beginning simulation!
+info: Entering event queue @ 0.  Starting simulation...
+warn: ignoring syscall set_robust_list(...)
+      (further warnings will be suppressed)
+warn: ignoring syscall rt_sigaction(...)
+      (further warnings will be suppressed)
+warn: ignoring syscall rt_sigprocmask(...)
+      (further warnings will be suppressed)
+warn: readlink() called on '/proc/self/exe' may yield unexpected results in various settings.
+      Returning '/home/junin/git/parmibench-riscv/myBitcount/bitcount_riscv'
+info: Increasing stack size by one page.
+warn: ignoring syscall mprotect(...)
+warn: ClockedObject: Already in the requested power state, request ignored
+warn: ignoring syscall mprotect(...)
+warn: ignoring syscall mprotect(...)
+warn: ignoring syscall mprotect(...)
+Worker 0: from 0 to 25000
+Worker 1: from 25000 to 50000
+Worker 2: from 50000 to 75000
+warn: ignoring syscall madvise(...)
+warn: ignoring syscall madvise(...)
+warn: ignoring syscall madvise(...)
+resultado core 0:  238358
+resultado core 1:  253205
+resultado core 2:  269007
+res: 760570
+Exiting @ tick 2694497000 because exiting with last active thread context
